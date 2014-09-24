@@ -27,7 +27,7 @@ module.exports = (robot) ->
 
 
     try
-      payload = JSON.parse req.body.payloadad
+      payload = JSON.parse req.body.payload
       user = {}
       user.room = payload.room if payload.room
       user.type = payload.type if payload.type
