@@ -25,12 +25,12 @@ module.exports = (robot) ->
 
   robot.router.post "/hubot/magnum-ci", (req, res) ->
 
-    user = {}
-    user.room = query.room if query.room
-    user.type = query.type if query.type
 
     try
-      payload = JSON.parse req.body.payload
+      payload = JSON.parse req.body.payloadad
+      user = {}
+      user.room = payload.room if payload.room
+      user.type = payload.type if payload.type
 
       robot.send user, "#{payload.title}"
 
