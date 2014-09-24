@@ -32,7 +32,7 @@ module.exports = (robot) ->
       user.room = payload.room if payload.room
       user.type = payload.type if payload.type
 
-      robot.send "#{payload.title}"
+      robot.messageRoom '#tool-mobile', "#{payload.title}"
 
     catch error
       console.log "travis hook error: #{error}. Payload: #{req.body.payload}"
