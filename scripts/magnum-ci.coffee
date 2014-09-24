@@ -20,23 +20,22 @@
 #   sergeylukin
 
 url = require('url')
-
+rooms = process.env.HUBOT_DEV_ROOMS.split(",")
 module.exports = (robot) ->
 
   robot.router.post "/hubot/magnum-ci", (req, res) ->
+    rooms.forEach (room, i) ->
+      try
+        payload = JSON.parse req.body.payload
+        user = {}
+        user.room = room
+        user.type = payload.type if payload.type
 
+        robot.messageRoom room, "#{payload.title}"
 
-    try
-      payload = JSON.parse req.body.payload
-      user = {}
-      user.room = payload.room if payload.room
-      user.type = payload.type if payload.type
+      catch error
+        console.log "travis hook error: #{error}. Payload: #{req.body.payload}"
 
-      robot.messageRoom '#tool-mobile', "#{payload.title}"
-
-    catch error
-      console.log "travis hook error: #{error}. Payload: #{req.body.payload}"
-
-    res.end JSON.stringify {
-      send: true #some client have problems with and empty response, sending that response ion sync makes debugging easier
-    }
+      res.end JSON.stringify {
+        send: true #some client have problems with and empty response, sending that response ion sync makes debugging easier
+      }
