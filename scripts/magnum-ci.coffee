@@ -31,7 +31,7 @@ module.exports = (robot) ->
         user.room = room
         user.type = payload.type if payload.type
 
-        robot.messageRoom room, "#{payload.title}"
+        robot.send room, "#{payload.title}"
 
       catch error
         console.log "travis hook error: #{error}. Payload: #{req.body.payload}"
