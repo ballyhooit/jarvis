@@ -26,7 +26,7 @@
     "hubot-darksky": "1.0.1",
     "hubot-scripts": ">= 2.5.0 < 3.0.0",
     "hubot-devops-reactions": "1.0.2",
-    "hubot-magnum-ci": "*",
+    "hubot-magnum-ci": "0.1.1",
     "hubot-slack": "2.2.0",
     "hubot-standup-alarm": "0.0.3"
   },
