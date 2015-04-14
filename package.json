@@ -16,6 +16,9 @@
       "url": "https://github.com/github/hubot/raw/master/LICENSE"
     }
   ],
+  "scripts" : {
+    "start" : "bin/hubot -a lets-chat -n Jarvis"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/github/hubot.git"
