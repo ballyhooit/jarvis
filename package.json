@@ -17,7 +17,7 @@
     }
   ],
   "scripts" : {
-    "start" : "bin/hubot -a lets-chat -n Jarvis"
+    "start" : "bin/hubot -a lets-chat -n Jarvis -p 1337"
   },
   "repository": {
     "type": "git",
